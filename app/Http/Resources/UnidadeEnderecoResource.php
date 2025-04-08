@@ -16,6 +16,7 @@ class UnidadeEnderecoResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'unid_id' => $this->unid_id,
             'endereco' => new EnderecoResource($this->endereco),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
