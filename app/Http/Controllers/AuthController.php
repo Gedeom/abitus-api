@@ -33,6 +33,20 @@ class AuthController extends BaseController
     }
 
     /**
+     * Refresh token
+     */
+    public function refresh(Request $request): JsonResponse
+    {
+        $token = $this->serviceClass->refreshToken($request->user()->id);
+
+        return response()->json([
+            'message' => 'Token refreshed successfully!',
+            'token' => $token
+        ]);
+    }
+
+
+    /**
      * Logout and token revocation
      */
     public function logout(Request $request)

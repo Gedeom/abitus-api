@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use \App\Models\User;
 use \App\Models\PessoaEndereco;
+use \App\Models\Pessoa;
+use \App\Models\Endereco;
 
 class PessoaEnderecoTest extends TestCase
 {

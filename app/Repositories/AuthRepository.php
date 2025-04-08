@@ -19,6 +19,12 @@ class AuthRepository extends BaseRepository
         return $user->createToken('api_token', ['*'], now()->addMinutes(5))->plainTextToken;
     }
 
+    public function refreshToken(int $userId): string
+    {
+        $this->deleteTokens($userId);
+        return $this->createToken($this->entity::find($userId));
+    }
+
     public function deleteTokens(string $userId): bool
     {
         return $this->entity::find($userId)->tokens()->delete();

@@ -24,6 +24,11 @@ class AuthService extends BaseService
         return $this->repositoryClass->createToken($user);
     }
 
+    public function refreshToken(int $userId): string
+    {
+        return $this->repositoryClass->refreshToken($userId);
+    }
+
     public function deleteTokens(int $userId): bool
     {
         return $this->repositoryClass->deleteTokens($userId);

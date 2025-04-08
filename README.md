@@ -1,66 +1,147 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto prático para o Processo Seletivo SEPLAG/2025
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Candidato: Gedeom Anastácio de Souza<br>
+CPF: 02205682601<br>
 
-## About Laravel
+- Inscrição: 9956 - Perfil: DESENVOLVEDOR PHP - SÊNIOR
+- Inscrição: 9981 - Perfil: DESENVOLVEDOR PHP - PLENO
+<br>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Projeto API REST em PHP Laravel + base de dados postgreSQL + Docker Compose.
+Este repositório contém um projeto com uma solução que será utilizado exclusivamente para uma avaliação de processo seletivo da SEPLAG.
+<br>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🛠 Tecnologias
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### As seguintes ferramentas foram usadas na construção do projeto:
+- PHP 8+
+- Laravel 11+
+- PostgreSQL
+- MinIO (armazenamento das fotos)
+- Docker e Docker Compose
+<br>
 
-## Learning Laravel
+### 🛠 Pré-requisitos
+- <a href="https://git-scm.com/downloads">GIT</a> instalado para baixar o projeto
+- <a href="https://www.docker.com/products/docker-desktop/">Docker</a> Desktop instalado
+- <a href="https://getcomposer.org/">Composer</a> (dependências do PHP Laravel)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Faça o Clone do Projeto
+#### O projeto encontra-se no GIT na branch master, execute o comando para baixar:
+```bash
+git clone https://github.com/Gedeom/abitus-api.git
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+#### Navegue até o diretório onde realizou o clone do projeto
+`cd abitus-api`
+<br>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### Na raíz do projeto já estão os arquivos de configurações
+`.env`
+`Dockerfile`
+`docker-compose.yml`
+<br>
 
-## Laravel Sponsors
+#### Instale as dependências do PHP Laravel
+```bash
+docker exec app composer install
+```
+<br>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Verifica se já existe Containers instalados
+```bash
+docker ps -a
+```
+<br>
 
-### Premium Partners
+### 🏗️ Configurando o ambiente
+#### Os arquivos (Dockerfile e docker-compose.yml) estão configurados para instanciar e subir os containers:
+- abitus-api
+- nginx
+- redis
+- postgres
+- minio_server
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+#### Suas respectivas imagens
+- abitus-api
+- nginx
+- redis
+- postgres
+- minio/minio
+<br>
 
-## Contributing
+Desta forma, basta acessar a raiz do projeto pelo terminal e executar o comando:
+```bash
+docker compose up -d --build
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Aguarde a instalação e configurações dos contaniers, após instalado, confirme a instalação executando novamente o comando:
+```bash
+docker ps -a
+```
 
-## Code of Conduct
+### Caso precise excluir tudo para refazer o processo:
+```bash
+docker compose down
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Exclui informações de cache:
+```bash
+docker system prune
+```
 
-## Security Vulnerabilities
+### Confirme exclusão de cache de container:
+```bash
+docker container prune -f
+```
+<br>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 🗄️ Configurando o banco de dados no container
+Após a confirmação dos containers instalados com suas respectivas imagens, para garantir que tudo esteja funcionando, execute as migrations dentro do contaniner (api-seletivo-seplag)
+```bash
+docker compose exec app php artisan migrate:fresh
+docker compose exec app php artisan migrate:fresh --env=testing
+```
+<br>
 
-## License
+Execute o comando abaixo para inserir o usuário padrão
+```bash
+docker exec app php artisan db:seed
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Para executar os tetes unitários execute o comando abaixo
+```bash
+docker docker compose exec app php artisan test
+```
+
+
+### 🧪 Testando a API
+Para verificar a documentação e realizar os teste, basta acessar pelo navegador
+```bash
+https://documenter.getpostman.com/view/3124163/2sB2cX9goB
+```
+
+É necessário realizar a Autenticação no endpoint `/api/login`.
+```bash
+http://localhost:8888/api/login
+```
+- 📧 **Email:** `admin@email.com`
+- 🔑 **Senha:** `12345678`
+
+
+- Execute e será gerado o TOKEN. Copie e cole em Bearer Token no POSTMAN ou software de sua preferência.
+- Após esta ação é possível realizar os testes. Tempo do token expira em 5 minutos.
+- Para renovar o token, utilize o serviço /api/refresh. Copie e cole o novo token na opção Authorize.
+<br>
+
+### Para verificar os arquivos publicados no MinIO, acesse:
+```bash
+http://localhost:9091/login
+```
+
+- 📧 **Username:** `minio`
+- 🔑 **Senha:** `miniostorage`
+- Após acessar e logar no MinIO, crie o bucket "mybucket", assim as fotos serão publicadas neste bucket.
+
+<br>
+

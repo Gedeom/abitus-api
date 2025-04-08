@@ -28,6 +28,7 @@ use App\Http\Controllers\{
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware(['api', 'auth:sanctum'])->group(function () {
+    Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::post('/logout', [AuthController::class, 'logout']);
 
     Route::resource('pessoas', PessoaController::class);
