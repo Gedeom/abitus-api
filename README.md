@@ -116,10 +116,10 @@ docker docker compose exec app php artisan test
 
 
 ### 🧪 Testando a API
-Para verificar a documentação e realizar os teste, basta acessar pelo navegador
-```bash
-https://documenter.getpostman.com/view/3124163/2sB2cX9goB
-```
+Para verificar a documentação e realizar os teste, basta acessar pelo navegador:
+
+[Documentação Completa](https://documenter.getpostman.com/view/3124163/2sB2cX9goB)
+
 
 É necessário realizar a Autenticação no endpoint `/api/login`.
 ```bash
